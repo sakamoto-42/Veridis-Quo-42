@@ -1,0 +1,48 @@
+cd /home/event/discovery_piscine
+mkdir cell10
+cd cell10
+mkdir ex00
+cd ex00
+
+vim helloworld.html	// crée le fichier html
+i
+<!DOCTYPE html>		// cette déclaration définit le type de document et la version HTML : elle indique au navigateur que c'est un document HTML5
+<html lang="en">	// cette balise est la racine de la page HTML : entre la balise ouvrante <html> et la balise fermante </html>, on écrit le code HTML
+			// qui sera interprété par le navigateur ; on indente les éléments (balises) à l'intérieur pour plus de lisibilité
+			// on peut (facultatif) indiquer la langue du document avec l'attribut lang ; en pour anglais ou fr pour français 
+	<head>		// dans head, on indique les méta-données du document HTML (dans les balises <meta>), l'encodage des caractères par exemple							// ainsi que le nom de la page (qui sera affiché sur l'onglet) (dans la balise <title>), et le CSS (dans la balise <style>)
+			// on peut aussi y indiquer le lien vers une feuille de style CSS externe (avec la balise <link>)
+			// le contenu de head ne sera pas affiché directement dans la page html, mais son contenu est utile au navigateur
+		<title>Hello World</title>	// la balise title permet d'indiquer le titre de la page : il correspond au titre de l'onglet (facultatif pour l'exercice)
+						// sans cette balise, l'onglet prendra le nom du document html (helloworld.html)
+		<meta charset="UTF-8">		// cette balise indique au navigateur d'encoder les caractères de ce document en UTF-8
+						// (qui inclut la majorité des caractères de tous les langages)
+
+						// LES 2 BALISES SUIVANTES SONT FACULTATIVES
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">	// cette balise permet une meilleure compatibilité avec Internet Explorer
+									// http-equiv : équivalent de l'entête http
+									// X-UA-Compatible : mode de compatibilité de l'eXperimental User Agent (le navigateur expérimental)
+									// content : contenu de la règle meta (value)
+									// IE=edge : se baser sur la dernière version de IE (Internet Explorer) 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">	// cette balise est utilisée pour que la page soit correctement affichée sur mobile
+											// elle paramètre la largeur de la page relativement à la largeur de l'appareil
+											// et intialise le zoom à 1.0
+											// name : nom de la meta
+											// viewport = zone d'affichage actuellement visible sur l'appareil
+											// content : contenu de la règle meta (value)
+											// width=device-width : ajuster la largeur à la largeur de l'appareil (device)
+											// initial-scale=1.0 : échelle initiale à 1.0 (niveau de zoom initial à 1.0)
+											// ATTENTION ! Séparer width et initial-scale par une virgule (",")
+	</head>					// on referme la balise head
+	<body>					// dans body, on indique le contenu de la page HTML, qui sera affiché dans le corps de la page (texte, images, liens, etc.)
+		Hello World			// on veut afficher Hello World
+						// REMARQUE : on peut aussi écrire <h1>Hello World</h1> pour l'écrire comme un titre de 1er niveau (voir ex01), mais ce n'est pas
+						// obligatoire pour cet exercice
+	</body>					// on referme la balise body
+</html>						// on referme la balise html
+
+echap
+:wq
+enter
+
+firefox	helloworld.html					// ouvre le fichier dans le navigateur firefox pour afficher la page web

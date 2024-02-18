@@ -1,0 +1,19 @@
+#!/bin/bash
+if [ $# -eq 0 ]; then
+	echo "No arguments supplied"
+else
+	i=1
+	while [ $i -le 3 ]		// while : tant que ; tant que la valeur de la variable i est inférieure ou égale (le : less or equal) à 3
+	do				// la suite d'instructions entre do et done sera répétée (3 fois maximum)
+		if [ -n "$1" ]; then 	// si le premier argument passé (l'argument en cours) n'est pas vide
+			echo "$1"	// on l'affiche
+			shift		// on remplace l'argument en cours par l'argument suivant (le 2ème argument "écrasera" le 1er argument)
+					// techniquement, la valeur de l'argument suivant (la valeur du 2ème argument) sera affectée à $1 (la variable contenant la valeur du 						// premier argument
+					// ATTENTION : LE SUJET INDIQUE QU'AUCUNE FONCTION N'EST AUTORISEE : SHIFT EST-IL CONSIDERE COMME UNE FONCTION ?
+
+		else			// sinon (si l'argument en cours n'existe pas)
+			break		// on sort de la boucle ; on ne fera pas d'autre tour de boucle
+		fi			// fin de si
+		i=$((i+1))		// on incrémente le compteur de 1
+	done				// terminé (fin de la boucle while) ; si la condition [ $i -le 3 ] est toujours vraie, on refait un tour de boucle
+fi					// fin de si

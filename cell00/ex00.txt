@@ -1,0 +1,24 @@
+				// RTFM !
+
+man pwd				// manuel pour pwd
+man cd				// manuel pour cd
+man mkdir			// manuel pour mkdir
+man ls				// manuel pour ls
+
+pwd				// pwd : print working directory (affiche le répertoire courant, là où on se situe)
+cd /home/event			// cd nom_du_repertoire : change directory (navigue vers le répertoire nom_du_repertoire)
+				// / : root (racine du système)
+				// home : répertoire home (où se situent les dossiers persos de tous les utilisateurs)
+				// event : répertoire utilisateur (dossier personnel)
+				// donc avec cd /home/event on navigue à la racine du système, puis dans home, puis dans le dossier de l'utilisateur event
+				// on peut aussi faire cd / puis cd home puis cd event
+				// ou cd / puis ls (pour lister le contenu du répertoire courant, on voit alors le répertoire home) puis cd home
+				// puis ls (pour lister le contenu du répertoire courant, on voit alors le répertoire event), puis cd event
+
+mkdir discovery_piscine		// mkdir nom_du_repertoire : make directory (crée le répertoire nom_du_repertoire)
+				// créer le répertoire discovery_piscine
+
+cd discovery_piscine		// naviguer vers le répertoire discovery_piscine
+mkdir cell00			// créer le répertoire cell00
+cd cell00			// naviguer vers le répertoire cell00
+mkdir ex00			// créer le répertoire ex00
