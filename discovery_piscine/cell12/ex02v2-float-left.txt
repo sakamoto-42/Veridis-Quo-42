@@ -4,9 +4,9 @@ cd cell12
 mkdir ex02
 cd ex02
 
-cp /home/event/discovery_piscine/cell11/ex01/piscineweb.html piscineweb.html
+cp /home/event/discovery_piscine/cell11/ex01/piscineweb.html piscineweb2.html
 										
-vim piscineweb.html
+vim piscineweb2.html
 i
 <!DOCTYPE html>
 <html lang="en">		
@@ -39,13 +39,14 @@ i
 				width: 80%;						// on indique une largeur de 80% (c'est-à-dire 80% de la largeur du conteneur parent)
 											// ici, le container parent est le body (qui dépend lui-même de la largeur de la 
 											// fenêtre du navigateur) ; on notera donc que l'élément s'ajustera dynamiquement à
-											// la taille de l'écran ou de la fenêtre du navigateur) grâce à l'utilisation d'une 												// taille relatvie (en pourcentage)
+											// la taille de l'écran ou de la fenêtre du navigateur) grâce à l'utilisation d'une 												// taille relative (en pourcentage)
 											// l'espace vide restant sera donc de 20%, et grâce aux propriétés margin-left: auto et 
 											// margin-right: auto, 10% de marge sera appliqué à gauche et 10% à droite
 			}
 
 			div.images-container img {					// le sélecteur est div.images-container img : les images (les éléments img)
 											// contenus dans une div de classe images-container
+											
 				float: left;						// on utilise float: left pour que les images s'alignent côte à côte
 											// attention : si les images sont trop larges pour tenir côte à côte, elles se 													// réorganiseront verticalement (la 2ème image passera sous la 1ère)
 											// de plus, elles seront alignées verticalement au sommet de l'image (et non pas à leur 											// base)
@@ -80,4 +81,4 @@ echap
 :wq
 enter
 
-firefox piscineweb.html
+firefox piscineweb2.html

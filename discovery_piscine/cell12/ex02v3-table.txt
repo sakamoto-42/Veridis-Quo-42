@@ -1,0 +1,78 @@
+cd /home/event/discovery_piscine
+mkdir cell12
+cd cell12
+mkdir ex02
+cd ex02
+
+cp /home/event/discovery_piscine/cell11/ex01/piscineweb.html piscineweb3.html
+											
+vim piscineweb3.html
+i
+<!DOCTYPE html>
+<html lang="en">		
+	<head>
+		<title>Piscine Web</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">				
+		<style>									
+			h1 {
+				text-align: center;
+			}
+											// le sélecteur est div.center : le style sera appliqué aux div de classe
+											// center
+											// c'est-à-dire aux div dont la valeur de l'attribut class est "center"
+											// (voir plus bas)
+											// ce container sera centré grâce à des règles CSS spécifiques, détaillées plus bas 												// (d'où son nom)
+											// il contiendra lui-même un container de classe row (ligne), qui représentera une 												// ligne, et, dans ce container, 2 containers (de classe column (colonne))
+											// (voir le html plus bas), qui eux-mêmes contiendront, chacun, une image
+											// le container de classe center sera de type table (pour indiquer une 														// disposition sous la forme d'un tableau)
+			
+
+			div.center {							// sélectionne la (ou les) div de classe center
+				display: table;						// indique d'afficher le contenu de ce container comme un tableau (avec lignes et 												// colonnes), utile pour gérer facilement la mise en page
+											// LA DISPOSITION EN TABLEAU EST CEPENDANT NON CONSEILLEE EN HTML
+											// CETTE SOLUTION EST INDIQUEE A TITRE D'EXEMPLE
+				margin-left: auto;
+				margin-right: auto;					
+				width: 80%;
+			}			
+
+			div.row {
+				display: table-row;					// on indique que l'on veut que chaque div de classe row doit se comporter comme
+											// une ligne d'un tableau
+			}
+
+			div.column {
+				display: table-cell;					// on indique que l'on veut que chaque div de classe column doit se comporter comme
+											// une cellule d'un tableau
+			}
+
+			div.column img {
+				display: block;						
+				max-width: 50vw;					
+				height: auto;					
+			}
+		</style>								// on ferme la balise style
+	</head>					
+	<body>					
+		<h1>Piscine Web</h1>
+		<div class="center">
+											// cette div se comportera comme un tableau, et sera centrée
+			<div class="row">						// 1ère ligne du tableau
+				<div class="column">					// 1ère colonne du tableau
+					<img src="img1.jpeg" title="Image 1" alt="" width="512" height="512">
+				</div>							// fin de la 1ère colonne du tableau
+				<div class="column">					// 2ème colonne du tableau
+					<img src="img2.jpeg" title="Image 2" alt="" width="512" height="512">
+				</div>							// fin de la 2ème colonne du tableau
+			</div>								// fin de la 1ère ligne du tableau
+		</div>									// fin du tableau
+	</body>					
+</html>						
+
+echap
+:wq
+enter
+
+firefox piscineweb3.html

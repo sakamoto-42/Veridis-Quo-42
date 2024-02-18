@@ -1,0 +1,128 @@
+cd /home/event/discovery_piscine
+mkdir cell14
+cd cell14
+mkdir ex04
+cd ex04
+
+cp /home/event/discovery_piscine/cell13/ex03/piscineweb.html basics.html
+
+
+vim basics.html
+i
+<!DOCTYPE html>
+<html lang="en">		
+	<head>
+		<title>Basics</title>								// titre de l'onglet de navigation
+		<meta charset="UTF-8">								// si le fichier HTML est bien enregistré suivant l'encodage utf-8, alors
+												// on peut taper les caractères spéciaux tels quels (les accents, le ç, le €, 													// etc) ou les copier coller d'internet ou les insérer avec Alt + un nombre puis 												// relâcher Alt
+												// ils seront bien interprétés par le navigateur
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				background-color: pink;						// couleur de fond (background) de toute la page
+			}									// (appliquée à l'élément body, donc à tout le contenu de la page) : rose
+												// (avec le mot pink)
+								
+			h1 {
+				text-align: center;
+				color: white;							// couleur du titre : blanc (avec le mot white)
+			}
+
+			div.online-shops-container {						// on a renommé le container images-container en online-shops-container
+												// pour l'identifier plus facilement
+												// il contiendra les online shops
+				display: flex;							
+				justify-content: center;
+				align-items: end;		
+			}
+
+			div.img-link-container {
+				text-align: center;						// centre horizontalement les éléments texte contenus dans les div de 
+												// classe img-link-container
+												// (les 2 containers contenant chacun l'image et son lien) 
+												// (voir plus bas) ; les liens (les éléments a) seront donc centrés
+												// horizontalement (car ce sont des éléments texte, dits inline)
+												// normalement, cela devrait aussi aligner horizontalement les images, car 													// celles-ci sont définies par défaut comme des éléments de type inline
+												// cependant, nous définissons plus bas les images du container de classe
+												// img-link-container comme un élément de type block
+												// donc cette propriété n'aura bien effet que sur les liens
+
+				padding: 20px;							// on ajoute une marge interne (interne à la bordure) autour de l'image de 20px
+												// cette marge sera appliquée en haut, en bas, à gauche et à droite de l'image
+												// on peut utiliser padding-top, padding-bottom, padding-left ou/et
+												// padding-right pour les appliquer séparément
+
+												// REMARQUE : on peut voir la différence entre margin (marge externe)
+												// et padding (marge interne) en ajoutant une bordure à l'élément
+												// avec "border: 1px solid black" par exemple
+			}
+												// ATTENTION : on ne peut appliquer la propriété text-align que sur un
+												// élément de type bloc, cela n'aura aucun effet sur élément de type inline
+												// c'est pour cela qu'il est nécessaire d'utiliser un container pour aligner
+												// le texte à l'intérieur de celui-ci !
+												
+
+			div.img-link-container img {						// ATTENTION : le sélecteur à utiliser pour les images ne doit pas être
+												// div.online-shops-container img
+												// mais celui-ci (div.img-link-container img) car leur container parent a été 													// modifié par rapport à l'exercice précédent
+
+				display: block;							// par défaut, les images sont de type inline
+												// c'est-à-dire que si l'élément suivant directement l'image 															// est aussi de type inline, il se retrouvera sur la même ligne que celui-ci, 													// directement à sa droite (c'est le cas ici, car a est de type inline)
+												// pour éviter cela (on veut que le lien se retrouve en-dessous de l'image et
+												// non à sa droite), on définit ces images comme étant de type bloc
+												// l'image occupera alors toute la largeur de la ligne
+				max-width: 50vw;											
+				heigth: auto;
+			}
+
+			p.copyright {								// l'élément p de classe copyright (qui contiendra le texte de pied de page)
+				text-align: right;						// on aligne le texte à droite dans son bloc (la balise p est de type bloc)
+				font-style: italic;						// on indique qu'on veut que le texte soit en italique
+				font-family: monospace;						// on indique qu'on veut utiliser la police monospace
+			}
+		</style>										
+	</head>					
+	<body>
+		<header>									// indique l'en-tête de la page, qui contient le titre principal
+			<h1>&lt;--- Bigger &amp; white title ---&gt;</h1>			// les caractères spéciaux comme "<" "&" et ">" doivent être écrits dans
+												// une syntaxe spécifique pour ne pas que le navigateur l'interprète comme
+												// du html :
+												// &lt; : less than (moins que, signe inférieur) <
+												// &mp; : ampersand (esperluette) &
+												// &gt; : greater than (plus grand que, signe supérieur) >
+
+												// on peut aussi utiliser certains caractères spéciaux (lettre accentuées par
+												// exemple) directement dans le fichier html si la balise <meta charset="UTF-8">
+												// est bien présente !
+		</header>
+
+		<main>										// enveloppe le contenu principal de la page
+			<div class="online-shops-container">					// container contenant les onlines shops (2 autres conteneurs image-lien)
+				<div class="img-link-container">				// container contenant l'image et son lien
+												// (pour faciliter l'alignement du lien sous son image)
+					<img src="displate.png" title="Displate logo" alt="The logo of the online shop Displate" width="316" height="159">
+					<a href="https://displate.com">Displate</a>
+				</div>
+				<div class="img-link-container">				// idem
+					<img src="tous-imparfaits.png" title="Tous imparfaits logo" alt="The logo of the online shop Tous imparfaits" width="307" height="164">
+					<a href="https://tousimparfaits.com/">Tous imparfaits</a>
+				</div>
+			</div>
+		</main>
+		<hr>										// ligne horizontale qui sépare la page (peu importe la taille de la fenêtre)
+												// à mettre au niveau du body pour que sa largeur fasse toute la page)
+		<footer>									// cette balise est utilisée pour le pied de page (contenant les informations
+												// complémentaires)
+			<p class="copyright">&copy; event 2024</p>				// bloc copyright contenant le symbole copyright (&copy;) le login et l'année
+												// on aurait aussi pu copier-coller le symbole copyright directement
+		</footer>
+	</body>					
+</html>						
+
+echap
+:wq
+enter
+
+firefox basics.html

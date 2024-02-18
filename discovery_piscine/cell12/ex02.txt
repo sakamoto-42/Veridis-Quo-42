@@ -44,7 +44,6 @@ i
 
 											// avec cette règle, on indique donc au contenu texte de la div
 											// (les balises img donc, qui sont considérées comme du texte) de s'aligner au centre
-			}
 		</style>								// on ferme la balise style
 	</head>					
 	<body>					
@@ -58,7 +57,12 @@ i
 			<img src="img1.jpeg" title="Image 1" alt="" width="512" height="512">
 			<img src="img2.jpeg" title="Image 2" alt="" width="512" height="512">
 						// la balise img (image) indique une image ; c'est une balise orpheline (pas besoin de balise fermante)
-						// on indique l'URL de l'image que l'on souhaite afficher (elle doit pointer directement vers le fichier image sur le serveur 							// Web) comme valeur de l'attribut src (source) (on peut aussi indiquer le chemin vers une image stockée localement)
+						// on indique l'URL de l'image que l'on souhaite afficher comme valeur de l'attribut src (source)
+						// on peut aussi indiquer le chemin vers une image stockée localement
+						// si l'image est dans le même répertoire que la fichier html, qui la contient, on indique directement le nom du fichier
+						// sinon, on indique le chemin à partir du répertoire courant (chemin relatif, par exemple "assets/img/img1.jpeg")
+						// ou à partir de la racine (/home/event/discovery_piscine/img/img1.jpeg par exemple) (chemin absolu)
+
 						// l'attribut title contient le titre de l'image : il doit donner plus de contexte (ou des informations complémentaires)
 						// sur l'image ; il sera affiché lorsque l'utilisateur passera le curseur de sa souris sur l'image, dans une petite infobulle
 						// l'atribut alt (alternative text) fournit une description textuelle de l'image ; cet attribut est important pour 								// l'accessibilité
