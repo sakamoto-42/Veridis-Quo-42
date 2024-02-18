@@ -35,26 +35,25 @@ i
 				text-align: center;					// on aligne les images (horizontalement) au milieu de la page
 			}
 
-			div.images-container img {					// par défaut, les images sont des éléments de type inline, elles seront donc traitées
+											// par défaut, les images sont des éléments de type inline, elles seront donc traitées
 											// comme du texte : si un élément img se place après un autre élément img, comme c'est 												// le cas ici (voir plus bas), ce dernier se placera à droite du premier, à la suite
 											// cela s'explique par le fait qu'un élément de type inline a une largeur égale à son
 											// contenu
 											// alors que les éléments de type block ont une largeur de 100% par défaut (ils prennent
 											// toute la largeur disponible)
+
+											// avec cette règle, on indique donc au contenu texte de la div
+											// (les balises img donc, qui sont considérées comme du texte) de s'aligner au centre
 			}
 		</style>								// on ferme la balise style
 	</head>					
 	<body>					
 		<h1>Piscine Web</h1>
-		<div class="images-container">						// div : balise générique de type bloc ; commence sur une nouvelle ligne et s'étend 
+		<div>									// div : balise générique de type bloc ; commence sur une nouvelle ligne et s'étend 
 											// sur toute la largeur disponible par défaut 																	// cette balise est souvent utilisée comme un container (pour contenir d'autres 												// éléments)
 											// on peut ainsi appliquer des styles à ce container 																// pour qu'ils soient appliqués à 
 											// tous ses éléments enfants, redimensionner ce bloc, lui appliquer
 											// une largeur et une hauteur précise, une couleur de fond (background), etc.
-											// on utilise l'attribut class pour "nommer" cette div
-											// (pour qu'on puisse la sélectionner spécifiquement)
-											// Remarque : une classe n'est pas unique, plusieurs éléments peuvent avoir la même
-											// valeur pour l'attribut class (la même classe)
 
 			<img src="img1.jpeg" title="Image 1" alt="" width="512" height="512">
 			<img src="img2.jpeg" title="Image 2" alt="" width="512" height="512">
@@ -79,4 +78,4 @@ echap
 :wq
 enter
 
-Ouvrir l'explorateur de fichiers, naviguer jusqu'au fichier html et l'ouvrir avec Firefox
+firefox piscineweb.html

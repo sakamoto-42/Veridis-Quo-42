@@ -21,13 +21,17 @@ i
 			}
 											// le sélecteur est div.images-container : le style sera appliqué aux div de classe
 											// images-container
+											// on sélectionne la classe images.container avec .images-container
+											// et (facultatif) on précise que l'on veut sélectionner les div de cette classe
+											// on préfixant la classe de div
+											// ATTENTION A NE PAS METTRE D'ESPACE ENTRE div ET .images-container !
 											// c'est-à-dire aux div dont la valeur de l'attribut class est "images-container"
 											// (voir plus bas)
 											
 											// ce container contiendra les 2 images (elle les encapsulera)
 											// nous pourrons ainsi aligner facilement les éléments de ce container (les images)
 											// dans celui-ci
-			div.images-container {				
+			div.images-container {
 				margin-left: auto;
 				margin-right: auto;					// ces deux règles, margin-left: auto; et margin-right: auto; déterminent 													// automatiquement la longueur des marges à gauche et à droite (respectivement)
 											// cela a pour effet de centrer horizontalement le conteneur au sein de son container 												// parent, à condition que cet élément ait une largeur définie (sans largeur fixe, les 												// marges automatiques ne peuvent pas déterminer l'espace à distribuer de chaque côté)
@@ -46,7 +50,7 @@ i
 											// attention : si les images sont trop larges pour tenir côte à côte, elles se 													// réorganiseront verticalement (la 2ème image passera sous la 1ère)
 											// de plus, elles seront alignées verticalement au sommet de l'image (et non pas à leur 											// base)
 				display: block;						// on indique qu'on veut traiter chaque image comme un bloc (et non pas comme du texte)
-											// par défaut, les images sont des éléments de type inline
+											// car par défaut, les images sont des éléments de type inline
 				max-width: 50vw;					// on indique que la largeur maximale pour chacune des 2 images dans ce container
 											// ne doit pas dépasser 50% de la fenêtre d'affichage en largeur
 											// (vw : view width, vue en largeur)
@@ -60,11 +64,7 @@ i
 	</head>					
 	<body>					
 		<h1>Piscine Web</h1>
-		<div class="images-container">						// div : balise générique de type bloc ; commence sur une nouvelle ligne et s'étend 
-											// sur toute la largeur disponible par défaut 																	// cette balise est souvent utilisée comme un container (pour contenir d'autres 												// éléments)
-											// on peut ainsi appliquer des styles à ce container 																// pour qu'ils soient appliqués à 
-											// tous ses éléments enfants, redimensionner ce bloc, lui appliquer
-											// une largeur et une hauteur précise, une couleur de fond (background), etc.
+		<div class="images-container">						
 											// on utilise l'attribut class pour "nommer" cette div
 											// (pour qu'on puisse la sélectionner spécifiquement)
 											// Remarque : une classe n'est pas unique, plusieurs éléments peuvent avoir la même
@@ -72,20 +72,7 @@ i
 
 			<img src="img1.jpeg" title="Image 1" alt="" width="512" height="512">
 			<img src="img2.jpeg" title="Image 2" alt="" width="512" height="512">
-						// la balise img (image) indique une image ; c'est une balise orpheline (pas besoin de balise fermante)
-						// on indique l'URL de l'image que l'on souhaite afficher (elle doit pointer directement vers le fichier image sur le serveur 							// Web) comme valeur de l'attribut src (source) (on peut aussi indiquer le chemin vers une image stockée localement)
-						// l'attribut title contient le titre de l'image : il doit donner plus de contexte (ou des informations complémentaires)
-						// sur l'image ; il sera affiché lorsque l'utilisateur passera le curseur de sa souris sur l'image, dans une petite infobulle
-						// l'atribut alt (alternative text) fournit une description textuelle de l'image ; cet attribut est important pour 								// l'accessibilité
-						// il décrit l'image aux utilisateurs qui ne peuvent pas la voir (le texte pourra être lu par un lecteur d'écran par exemple)
-						// ou dans les cas où l'image ne peut pas être chargée
-						// l'attribut title est facultatif mais l'attribut alt est OBLIGATOIRE, même s'il est laissé vide
-						// COMPORTEMENTS INNATENDUS POSSIBLES DANS CERTAINS CAS SI L'ATTRIBUT ALT EST ABSENT !
-						// il est aussi important d'indiquer la largeur et la hauteur originale de l'image (du fichier jpg par exemple)
-						// dans les attributs width (pour la largeur) et height (pour la hauteur)
-						// même s'ils sont modifiés par la suite en CSS
-						// aller dans les propriétés de l'image pour connaître ses dimensions et les indiquer ici
-		</div>				// on ferme le container
+		</div>
 	</body>					
 </html>						
 
@@ -93,4 +80,4 @@ echap
 :wq
 enter
 
-Ouvrir l'explorateur de fichiers, naviguer jusqu'au fichier html et l'ouvrir avec Firefox
+firefox piscineweb.html
