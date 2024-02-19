@@ -1,0 +1,86 @@
+cd /home/event/discovery_piscine
+mkdir cell30
+cd cell30
+mkdir ex00
+cd ex00
+
+cp /home/event/discovery_piscine/cell23/ex03/card.html	background.html
+
+vim background.html
+i
+
+<!DOCTYPE html>
+<html lang="en">		
+	<head>
+		<title>Background</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="background.css">
+		
+	</head>
+	<body>
+		<button id="random-bg-btn">Click me!</button>	// le bouton contiendra le texte "Click me!"
+								// l'id servira à sélectionner l'élément dans le script javascript
+								
+		<script src="background.js"></script>		// fait le lien avec le fichier javascript background.js
+								// à placer après le bouton, à la fin du body, pour ne pas avoir de problèmes de synchronisation
+								// le script recherchera le bouton d'id "random-bg-btn"
+								// donc si le script est placé avant le bouton, il ne le trouvera pas, car il ne sera pas encore chargé avant
+								// l'exécution du script !
+	</body>					
+</html>
+
+echap
+:wq
+enter
+
+vim background.css
+i
+
+space puis del
+
+echap
+:wq
+enter
+
+vim background.js
+i
+
+function randomColorChannel() {				// pour générer un nombre aléatoire entre 0 et 255 (pour les canaux R, G et B)
+	return Math.floor(Math.random() * 256);		// génère un nombre aléatoire entre 0 et 1 exclus (avec Math.random), puis le multiplie par 256
+							// donne donc un nombre entre 0 et 256 exclus (entre 0 et 255.99...)
+							// on arrondit à l'entier inférieur (avec Math.floor) pour obtenir un nombre entier entre 0 et 255
+							// on retourne le résultat
+}
+
+function randomAlphaChannel() {				// (FACULTATIF) pour générer un nombre aléatoire entre 0 et 1, à 2 décimales (0, 0.01 ... 0.99, 1)
+	return Math.round(Math.random() * 100) / 100;	// on génère un nombre entre 0 et 1 exclus (avec Math.random())
+							// on le multiplie par 100 pour obtenir un nombre entre 0 et 100 exclus (avec Math.round())
+							// on arrondit à l'entier le plus proche pour obtenir un nombre entre 0 et 100 inclus
+							// on divise par 100 pour obtenir un nombre aléatoire entre 0 et 1, à 2 décimales (0, 0.01 ... 0.99, 1)
+							// on retourne le résultat
+							
+}
+
+function randomRGBA() {					// pour générer la chaine de caractères "rgba()" avec les valeurs des canaux R, G, B et A aléatoires générées
+	let R = randomColorChannel();			// on génère un nombre entre 0 et 255 pour R (après avoir déclaré la variable R avec let R)
+	let G = randomColorChannel();			// idem pour G
+	let B = randomColorChannel();			// idem pour B
+	let A = randomAlphaChannel();			// on génère un nombre entre 0 et 1 (à 2 décimales) pour A
+	
+	return `rgba(${R}, ${G}, ${B}, ${A})`;		// on retourne la chaine de caractères "rgba()" avec les valeurs des canaux R, G, B et A aléatoires générées
+}
+
+document.getElementById("random-bg-btn").addEventListener("click", function() {	// pour que l'arrière-plan de la page change de couleur avec la valeur RGBA aléatoire
+										// on ajoute un event listener qui va écouter l'évènement click (le clic) sur le bouton d'id
+										// random-bg-btn du document
+										// ce clic exécutera la fonction anonyme suivante
+	document.body.style.backgroundColor = randomRGBA();	// on attribue la valeur retournée par randomRGBA() (la valeur RGBA générée aléatoirement) au style 										// backgroundColor (traduit par le style CSS background-color), puis on l'applique à l'élément body du document
+});								// ne pas oublier la parenthèse fermante et le point virgule à la fin de la fonction anonyme
+
+echap
+:wq
+enter
+
+firefox background.html
