@@ -12,10 +12,12 @@ cp responsive.html responsive.css
 
 vim responsive.css
 i
-html, body {				
-	margin: 0;			
-	padding: 0;			
+html, body {							
 	height: 100%;
+}
+
+body {
+	margin: 0;
 }
 
 table {

@@ -24,10 +24,6 @@ i
 								// ne pas confondre avec html body qui signifie "l'élément body DANS l'élément html"
 								// car cela appliquera les règles suivantes seulement à l'élément body dans ce cas
 
-				margin: 0;			// on supprime les marges par défaut
-								// (la plupart des navigateurs ajoutent des petites marges extérieure (margin) et intérieures (padding)
-								// autour des éléments html et body)
-				padding: 0;			// on les remet donc ainsi à 0 si tel est le cas
 				height: 100%;			// on indique une hauteur de 100% pour indiquer que l'on veut travailler avec toute la hauteur de la fenêtre
 								// cela est nécessaire car la hauteur de html et de body n'est pas définie par défaut
 								// (elle s'adapte au contenu normalement)
@@ -36,6 +32,12 @@ i
 								// remarque : cela n'est pas nécessaire d'indiquer width: 100% pour body et html car, comme ces éléments
 								// sont de type block, ils occupent déjà par défaut toute la largeur disponible du conteneur parent (et le 
 								// conteneur parent de html est la fenêtre du navigateur)
+			}
+			
+			body {
+				margin: 0;			// on supprime les marges par défaut
+								// (la plupart des navigateurs ajoutent des petites marges extérieure (margin) autour de l'élément body)
+								// on la remet donc ainsi à 0 si tel est le cas
 			}
 
 			table {

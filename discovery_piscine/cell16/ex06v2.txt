@@ -17,10 +17,10 @@ i
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
-			html, body {
-				margin: 0;			
-				padding: 0;
-								// PLUS BESOIN D'INDIQUER "height: 100%" avec cette solution !
+								// PLUS BESOIN D'INDIQUER "height: 100%" sur html et body avec cette solution !
+
+			body {
+				margin: 0;
 			}
 
 			table {

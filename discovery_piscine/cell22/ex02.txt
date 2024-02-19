@@ -1,0 +1,86 @@
+cd /home/event/discovery_piscine
+mkdir cell22
+cd cell22
+mkdir ex02
+cd ex02
+
+cp /home/event/discovery_piscine/cell21/ex01/menu.html parallax.html
+
+vim parallax.html
+i
+
+<!DOCTYPE html>
+<html lang="en">		
+	<head>
+		<title>Parallax</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="parallax.css">
+	</head>
+	<body>
+		<div class="parallax" id="first-image">
+			<p>Day</p>
+		</div>
+		<div id="black-block">
+			<p>Loading...</p>
+		</div>
+		<div class="parallax" id="second-image">
+			<p>Night</p>
+		</div>
+	</body>					
+</html>
+
+echap
+:wq
+enter
+
+vim parallax.css
+i
+
+body, p {
+	margin: 0;	// pour mettre à zéro les marges extérieures appliquées par défaut à body et p par le navigateur
+}
+
+			// on utilise # pour sélectionner un élément par son id (contrairement à . pour le sélectionner par sa classe)
+#first-image {		// pour le background du 1er bloc (de la 1ère div)
+	background-image: url("parallax-1.jpg");	// on indique url("") même si l'image est stockée localement !
+}
+
+#black-block {		// background du 2ème bloc (de la 2ème div)
+	background-color: black;	// fond de couleur noire
+	height: 200px;			// bloc de 200px de hauteur
+					// (la largeur est de 100% par défaut), donc pas besoin de la préciser
+}
+
+#second-image {		// pour le background du 3ème bloc (de la 3ème div)
+	background-image: url("parallax-2.jpg");
+}
+
+.parallax {
+	height: 100vh;			// hauteur: 100% du viewheight (100% de la hauteur de la fenêtre)
+	background-attachment: fixed;	// donne l'effet de parallaxe : le background restera fixe lors du défilement, seul défilera le contenu (le texte) au premier plan
+					// il "glissera" par dessus l'image
+	background-position: center;	// on centre l'image horizontalement
+	background-repeat: no-repeat;	// pour ne pas répéter l'image
+					// par défaut, si l'image appliquée en background est trop petite par rapport à la taille du bloc (hauteur ou largeur), celle-ci
+					// sera répétée (en gardant ses dimensions originales) pour couvrir le bloc
+	background-size: cover;		// calculer les dimensions pour que l'image recouvre entièrement le bloc (l'image conserve ses proportions, elle ne sera peut-être pas 						// visible entièrement (un des côtés de l'image dépassera peut-être du bloc) mais elle couvrira tout le bloc
+}
+
+p {
+	position: relative;		// pour placer le paragraphe relativement à sa position initiale dans le flux du document
+					// on utilise top et left pour l'espacer par rapport au bord du haut et au bord de gauche de son container
+	top: 50%;			// on place le paragraphe verticalement au milieu du bloc (à la moitié de l'espace disponible à partir du haut)
+	left: 50%;			// et horizontalement (à la moitié de l'espace disponible à partir de la gauche)
+	line-height: 1.25;		// interligne standard, à préciser lors de l'utilisation de la propriété suivante pour aligner le texte correctement 
+	transform: translate(-50%, -50%);	// décale le texte de 50% de sa propre hauteur et de sa propre largeur
+	text-align: center;		// texte aligné au centre horizontalement
+	color: white;			// couleur du texte : blanc
+}
+
+echap
+:wq
+enter
+
+firefox parallax.html
