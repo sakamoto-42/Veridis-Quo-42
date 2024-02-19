@@ -1,0 +1,83 @@
+cd /home/event/discovery_piscine
+mkdir cell20
+cd cell20
+mkdir ex00
+cd ex00
+
+cp /home/event/discovery_piscine/cell16/ex06/responsive.html responsive.html
+
+// pour séparer le HTML du CSS dans 2 fichiers séparés (un fichier .html qui contiendra uniquement le html et un fichier .css qui contiendra uniquement le CSS), on peut copier le fichier responsive.html dans le fichier responsive.css, puis supprimer tout le html (pour ne garder que ce qui se trouve dans l'élément style)
+
+cp responsive.html responsive.css
+
+vim responsive.css
+i
+html, body {				
+	margin: 0;			
+	padding: 0;			
+	height: 100%;
+}
+
+table {
+	box-sizing: border-box;
+	border-collapse: collapse;							
+	border: 1px solid black;		
+	height: 100%;			
+	width: 100%;			
+}
+			
+td {
+	vertical-align: middle;			
+	box-sizing: border-box;
+	width: 50%;
+}
+
+tr td:nth-child(1) {				
+	background-color: darkkhaki;		
+	border-right: 1px solid grey;		
+}
+			
+tr td:nth-child(2) {				
+	background-color: lightpink;		
+	border-left: 1px solid grey;
+}
+
+echap
+:wq
+enter
+
+// on supprime ensuite l'élément style et son contenu du fichier responsive.html
+// il faut aussi faire le lien entre ce fichier html et le fichier css correspondant grâce à la balise link (voir plus bas)
+
+vim responsive.html
+i
+<!DOCTYPE html>
+<html lang="en">		
+	<head>
+		<title>Responsive</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="responsive.css">					// la balise link est placée dans le head
+												// rel (relationship) : cet attribut spécifie le type de relation entre le
+												// document HTML et la ressource qui sera chargée
+												// on indique stylesheet pour feuille de style (CSS)
+												// href (hypertext reference) : comme pour dans les balises a, cet attribut
+												// spécifie le chemin d'accès à la ressource
+												// on y indique le chemin vers le fichier CSS
+	</head>
+	<body>
+		<table>
+			<tr>						
+				<td>First cell</td>			
+				<td>Second cell</td>
+			</tr>						
+		</table>						
+	</body>					
+</html>						
+
+echap
+:wq
+enter
+
+firefox responsive.html

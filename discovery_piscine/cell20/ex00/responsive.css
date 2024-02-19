@@ -1,0 +1,29 @@
+html, body {				
+	margin: 0;			
+	padding: 0;			
+	height: 100%;
+}
+
+table {
+	box-sizing: border-box;
+	border-collapse: collapse;							
+	border: 1px solid black;		
+	height: 100%;			
+	width: 100%;			
+}
+			
+td {
+	vertical-align: middle;			
+	box-sizing: border-box;
+	width: 50%;
+}
+
+tr td:nth-child(1) {				
+	background-color: darkkhaki;		
+	border-right: 1px solid grey;		
+}
+			
+tr td:nth-child(2) {				
+	background-color: lightpink;		
+	border-left: 1px solid grey;
+}
