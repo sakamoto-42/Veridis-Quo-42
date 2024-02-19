@@ -1,0 +1,46 @@
+nav ul {				
+	padding-left: 0;
+}
+
+nav ul details, nav ul details ul li {
+	list-style-type: none;
+	position: relative;
+	display: inline-block;
+	padding: 10px;
+	background-color: #f2f2f2;
+}
+
+nav ul details:hover, nav ul details ul li:hover, nav ul details ul li a:hover {
+	background-color: rgba(0, 0, 0, 0.22);
+}
+
+nav ul details summary, nav ul details ul li a {
+	display: block;
+	padding: 20px 30px;
+	font-family: Arial, Helvetica, sans-serif;		
+	color: white;						
+	font-size: 20px;						
+	text-decoration: none;					
+}
+
+nav ul details ul {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #ddd;
+}
+
+nav ul details:hover ul {
+	display: block;
+}
+
+nav ul details ul li {
+	text-align: center;
+	border: 1px solid rgba(0, 0, 0, 0.22);
+	border-top: none;
+}
+
+nav ul details ul li a {
+	font-size: 16px;
+	border-radius: 50%;
+}
