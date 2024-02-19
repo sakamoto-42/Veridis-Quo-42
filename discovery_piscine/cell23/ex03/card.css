@@ -1,0 +1,53 @@
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+}
+
+td {
+	padding: 0;
+}
+
+table {
+	border-spacing: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.22);
+}
+
+h1 {
+	text-align: center;
+}
+
+img {
+	width: 337px;
+	height: 252px;
+}
+
+.answer {
+	color: grey;
+}
+
+.perpignan {
+	font-weight: bold;
+}
+
+.icons {
+	height: 20px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+.contact-button {
+	width: 100%;
+	background-color: black;
+	padding: 10px;
+	color: white;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
