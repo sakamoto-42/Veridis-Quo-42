@@ -109,3 +109,5 @@ i
 echap
 :wq
 enter
+
+firefox calc.html

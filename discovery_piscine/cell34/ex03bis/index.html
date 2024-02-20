@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">		
+	<head>
+		<title>TO DO</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			html, body, .container {
+				height: 100%;
+			}
+
+			body {
+				margin: 0;
+			}
+
+			.container {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#ft_list {	
+				margin: 20px;
+				background-color: pink;
+				border: 1px dashed black;
+			}
+
+			.todo_div {
+				height: 20px;
+				width: 100px;
+				margin: 10px;
+				border: 1px solid grey;
+				background-color: skyblue;
+				text-align: center;
+			}
+
+			button:hover {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div id="ft_list"></div>
+			<button id="new_btn">New</button>
+		</div>
+		<script src="jquery-3.7.1.js"></script>
+		<script src="todo.js"></script>
+	</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">		
+	<head>
+		<title>Calc</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			html, body, .container {
+				height: 100%;
+			}
+
+			body {
+				margin: 0;
+			}
+
+			.container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<form id="calc-form" method="post" action="">
+				<input type="text" required id="left-member-input" name="left-member">
+				<select required id="operator-select" name="operator">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="*">*</option>
+					<option value="/">/</option>
+					<option value="%">%</option>
+				</select>
+				<input type="text" required id="right-member-input" name="right-member">
+				<input type="submit" value="Try me!">
+			</form>
+		<div>
+		<script src="jquery-3.7.1.js"></script>
+		<script>
+			$(document).ready(function() {								
+				const formElem = $("#calc-form");						
+				const leftMemberInputElem = $("#left-member-input");				
+				const operatorSelectElem = $("#operator-select");				
+				const rightMemberInputElem = $("#right-member-input");
+				const errorMessage = ["It's over 9000!", "Error :(", "Please, use me ..."];
+
+				formElem.on("submit", function(event) {
+					event.preventDefault();
+
+					let leftMemberValue = parseInt(leftMemberInputElem.val(), 10);
+					let operatorValue = operatorSelectElem.val();
+					let rightMemberValue = parseInt(rightMemberInputElem.val(), 10);
+
+					if (leftMemberValue >= 0 && rightMemberValue >= 0) {
+						switch(operatorValue) {
+							case "+":
+								display(leftMemberValue + rightMemberValue);
+								break;
+							case "-":
+								display(leftMemberValue - rightMemberValue);
+								break;				
+							case "*":
+								display(leftMemberValue * rightMemberValue);
+								break;
+							case "/":					
+								if (rightMemberValue === 0)
+									display(errorMessage[0]);
+								else
+									display(leftMemberValue / rightMemberValue);
+								break;
+							case "%":
+								if (rightMemberValue === 0)
+									display(errorMessage[0]);
+								else
+									display(leftMemberValue % rightMemberValue);
+								break;
+						}
+					}
+					else
+						alert(errorMessage[1]);
+				});
+
+				function display(message) {
+					alert(message);
+					console.log(message);
+				}
+
+				setInterval(function() {
+					alert(errorMessage[2]);
+				}, 30000);
+			});
+		</script>
+	</body>					
+</html>

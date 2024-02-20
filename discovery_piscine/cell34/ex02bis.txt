@@ -1,0 +1,113 @@
+cd /home/event/discovery_piscine
+cd cell34
+cd ex04
+mkdir ex02bis
+cd ex02bis
+
+Aller sur https://jquery.com/download/ et faire un clic droit sur "Download the uncompressed, development jQuery 3.7.1" puis enregistrer la cible du lien sous...
+Sélectionner le dossier /home/event/discovery_piscine/cell34/ex04/ex00bis
+
+cp /home/event/discovery_piscine/cell32/ex02/calc.html calc.html
+
+vim calc.html
+i
+
+<!DOCTYPE html>
+<html lang="en">		
+	<head>
+		<title>Calc</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			html, body, .container {
+				height: 100%;
+			}
+
+			body {
+				margin: 0;
+			}
+
+			.container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<form id="calc-form" method="post" action="">
+				<input type="text" required id="left-member-input" name="left-member">
+				<select required id="operator-select" name="operator">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="*">*</option>
+					<option value="/">/</option>
+					<option value="%">%</option>
+				</select>
+				<input type="text" required id="right-member-input" name="right-member">
+				<input type="submit" value="Try me!">
+			</form>
+		<div>
+		<script src="jquery-3.7.1.js"></script>								// lien vers jquery
+		<script>
+			$(document).ready(function() {								// JQUERY
+				const formElem = $("#calc-form");						// JQUERY
+				const leftMemberInputElem = $("#left-member-input");				// JQUERY
+				const operatorSelectElem = $("#operator-select");				// JQUERY
+				const rightMemberInputElem = $("#right-member-input");				// JQUERY
+				const errorMessage = ["It's over 9000!", "Error :(", "Please, use me ..."];
+
+				formElem.on("submit", function(event) {						// JQUERY
+					event.preventDefault();
+
+					let leftMemberValue = parseInt(leftMemberInputElem.val(), 10);		// JQUERY : on utilise .val() au lieu de .value
+					let operatorValue = operatorSelectElem.val();
+					let rightMemberValue = parseInt(rightMemberInputElem.val(), 10);
+
+					if (leftMemberValue >= 0 && rightMemberValue >= 0) {
+						switch(operatorValue) {
+							case "+":
+								display(leftMemberValue + rightMemberValue);
+								break;
+							case "-":
+								display(leftMemberValue - rightMemberValue);
+								break;				
+							case "*":
+								display(leftMemberValue * rightMemberValue);
+								break;
+							case "/":					
+								if (rightMemberValue === 0)
+									display(errorMessage[0]);
+								else
+									display(leftMemberValue / rightMemberValue);
+								break;
+							case "%":
+								if (rightMemberValue === 0)
+									display(errorMessage[0]);
+								else
+									display(leftMemberValue % rightMemberValue);
+								break;
+						}
+					}
+					else
+						alert(errorMessage[1]);
+				});
+
+				function display(message) {
+					alert(message);
+					console.log(message);
+				}
+
+				setInterval(function() {
+					alert(errorMessage[2]);
+				}, 30000);
+			});
+		</script>
+	</body>					
+</html>
+
+echap
+:wq
+enter
