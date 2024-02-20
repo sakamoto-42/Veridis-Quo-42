@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">		
+	<head>
+		<title>Balloon</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			html, body, .container {
+				height: 100%;
+			}
+
+			body {
+				margin: 0;				
+			}
+
+			.container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#balloon {
+				height: 200px;
+				width: 200px;
+				background-color: red;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div id="balloon"><div>
+		</div>
+		<script>
+			const balloon = document.getElementById("balloon");
+			const balloonBackgroundColors = ['red', 'green', 'blue'];	
+			const growValue = 10;						
+			const shrinkValue = 5;						
+			const balloonMinSize = 200;					
+			const balloonMaxSize = 420;					
+
+			let balloonSizeValue = balloonMinSize;				
+
+			let i = 0;							
+
+			balloon.addEventListener("click", function() {			
+				changeSize("click");					
+				changeColor("click");					
+			});
+
+			balloon.addEventListener("mouseleave", function() {		
+				changeSize("mouseleave");				
+				changeColor("mouseleave");			
+			});
+
+			function changeSize(action) {					
+				if (action === "click")					
+					balloonSizeValue = ((balloonSizeValue + growValue) > balloonMaxSize) ? balloonMinSize : balloonSizeValue + growValue ;
+
+				else if (action === "mouseleave")		
+					balloonSizeValue = ((balloonSizeValue - shrinkValue) < balloonMinSize) ? balloonMinSize : balloonSizeValue - shrinkValue;
+											
+
+				balloon.style.height = balloonSizeValue + "px";	
+				balloon.style.width = balloonSizeValue + "px";	
+			}
+
+			function changeColor(action) {					
+				if (action === "click")					
+					i = adjustIndex(i + 1, balloonBackgroundColors.length);		
+				else if (action === "mouseleave")			
+					i = adjustIndex(i - 1, balloonBackgroundColors.length);		
+
+											
+				balloon.style.backgroundColor = balloonBackgroundColors[i];	
+			}
+
+			function adjustIndex(index, arrayLength) {
+				return (index + arrayLength) % arrayLength;										 
+			}
+		</script>
+	</body>					
+</html>
